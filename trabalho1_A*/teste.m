@@ -1,4 +1,0 @@
-clear
-clc
-
-printf("hell");

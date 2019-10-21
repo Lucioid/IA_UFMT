@@ -11,7 +11,7 @@
 clear 
 t=-1;
 % Teste 1 %
-if(contagem([1,2,3;1,7,6;5,4,2]) == 100)
+if(contagem([1,2,3;1,7,6;5,4,2]) == 2)
   fprintf('Teste 1: OK\n');
   t=1;
 endif
