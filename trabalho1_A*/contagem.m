@@ -7,16 +7,11 @@
 %
 # author: raonifst at gmail dot com
 function [ c ] = contagem( M )
-a= size(M)
-cont = 0;
-for i=1:a(1)
-  for j = 1: a(2)
-    if(M(i,j)==1)
-      cont++;
-      disp(M(i,j));
-    endif
-  endfor
+M = M(:);
+c = 0;
+for i=1:size(M)
+  if(M(i)==1)
+    c++;
+  endif
 endfor
-c=cont;
-
 endfunction

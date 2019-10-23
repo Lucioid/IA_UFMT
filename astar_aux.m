@@ -17,7 +17,6 @@
 % possuem solução. 
 %
 % author: raonifst at gmail dot com
-
 function [n, error] = astar(M, h)
 	
 	error = 0;
@@ -35,7 +34,7 @@ function [n, error] = astar(M, h)
 	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
-	q.insert(n.f+g(n.State), n);
+	q.insert(n.f+h(n.State), n);
 	
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila ficar vazia
 	while (~q.isempty())
