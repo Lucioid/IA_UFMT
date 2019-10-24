@@ -21,25 +21,26 @@
 function [n, error] = astar(M, h)
 	
 	error = 0;
-
-	%Cria uma fila de prioridades vazia
+  %Cria fila de prioridades
 	q = PriorityQueue() ;
-	
-	% Estado objetivo 
-	O = [1 2 3; 4 5 6; 7 8 9]; %Lembre-se de que seu programa deve para quando um estado objetivo for alcançado.
-	
-	% Cria um novo nó __n__ com estado igual a matriz __M__ (estado inicial) e 
-	% custo 0 (zero).
+  %Define estado Objetivo
+	O = [1 2 3; 4 5 6; 7 8 9]; 
+	%atribui a n o nó inicial, custo 0
  	n = Node(M, 0);
 	
 	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
-	q.insert(n.f+g(n.State), n);
+	q.insert(n.f+h(n.State), n);
 	
-	% Laço principal do algoritmo A-estrela - é interrompido quando a fila ficar vazia
-	while (~q.isempty())
+	% Laço principal do algoritmo A-estrela - é interrompido quando a fila 
+  %ficar vazia ou o estado do nó for = objetivo
+	while (~q.isempty() | n.State != O)
 	    
+      moves = legal_moves(n.State);
+      for i=1:size(moves, 1)
+        N = do_move(State, moves(i));
+      end
 	    % Remove um nó m com a menor prioridade na fila q
 	    m = q.extractMin();    
 	    

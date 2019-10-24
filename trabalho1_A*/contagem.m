@@ -8,10 +8,5 @@
 # author: raonifst at gmail dot com
 function [ c ] = contagem( M )
 M = M(:);
-c = 0;
-for i=1:size(M)
-  if(M(i)==1)
-    c++;
-  endif
-endfor
+c = length(find(M == 1));
 endfunction
