@@ -5,7 +5,7 @@
 % Função Octave/MATLAB que deve contar a quantidade de elementos
 % com valor igual a 1 (um) em uma matriz __M__ de entrada.
 %
-# author: raonifst at gmail dot com
+# author: srg_lc
 function [ c ] = contagem( M )
 M = M(:);
 c = length(find(M == 1));

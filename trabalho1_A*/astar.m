@@ -31,18 +31,21 @@ function [n, error] = astar(M, h)
 	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
-	q.insert(n.f+h(n.State), n);
+	#q.insert(n.f+h(n.State), n);
 	
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila 
   %ficar vazia ou o estado do nó for = objetivo
 	while (~q.isempty() | n.State != O)
 	    
-      moves = legal_moves(n.State);
-      for i=1:size(moves, 1)
-        N = do_move(State, moves(i));
+      moves = legal_moves(n.State); #recebe os movimentos possiveis dado o estado __n.State__
+      #percorre o vetor de possiveis movimentos e atribui a N
+      for i=1:size(moves, 1) 
+        N = do_move(n.State, moves(i));
+        q.insert(N.f+h(n.State), N);
+        N.Prev = n;
       end
 	    % Remove um nó m com a menor prioridade na fila q
-	    m = q.extractMin();    
+	    n = q.extractMin();    
 	    
 	    
 	end
