@@ -27,22 +27,26 @@ function [n, error] = astar(M, h)
 	O = [1 2 3; 4 5 6; 7 8 9]; 
 	%atribui a n o nó inicial, custo 0
  	n = Node(M, 0);
-	
-	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
+  q.insert(n.f+h(n.State), n);
+  % Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
 	#q.insert(n.f+h(n.State), n);
 	
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila 
   %ficar vazia ou o estado do nó for = objetivo
-	while (~q.isempty() | n.State != O)
-	    
+	while (~q.isempty() || n.State != O)
       moves = legal_moves(n.State); #recebe os movimentos possiveis dado o estado __n.State__
       #percorre o vetor de possiveis movimentos e atribui a N
       for i=1:size(moves, 1) 
         N = do_move(n.State, moves(i));
-        q.insert(N.f+h(n.State), N);
-        N.Prev = n;
+        printf("N: %d \n",N);
+        input("prox");
+        new = Node(N,7);
+        
+        q.insert(new.f+h(n.State), new);
+       
+        new.Prev = n;
       end
 	    % Remove um nó m com a menor prioridade na fila q
 	    n = q.extractMin();    
