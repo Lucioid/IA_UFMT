@@ -35,14 +35,15 @@ function [n, error] = astar(M, h)
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila 
   %ficar vazia ou o estado do nó for = objetivo
   
-	while (~q.isempty() && n.State != O)
+	while (~q.isempty())
+    #printf("teste");
+    
       moves = legal_moves(n.State); #recebe os movimentos possiveis dado o estado __n.State__
       #percorre o vetor de possiveis movimentos e atribui a N
       for i=1:size(moves, 1) 
         N = do_move(n.State, moves(i));
        #printf("N(%d): %d \n",i,N.state);
-        show(N);
-        input("prox");
+        
         new = Node(N,7);
         
         q.insert(new.f+h(n.State), new);
@@ -51,7 +52,9 @@ function [n, error] = astar(M, h)
       end
 	    % Remove um nó m com a menor prioridade na fila q
 	    n = q.extractMin();    
-	    
+      if(n.State == O)
+        break;     
+      end  
 	    
 	end
 
