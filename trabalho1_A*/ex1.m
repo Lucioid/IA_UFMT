@@ -13,6 +13,7 @@ clc
 % Utilizado para comparar objetos - NAO APAGUE! %  
 global id;
 id = intmin;
+
 % %
 
 % Teste 1
