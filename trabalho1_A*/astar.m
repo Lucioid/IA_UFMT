@@ -21,40 +21,35 @@
 function [n, error] = astar(M, h)
 	
 	error = 0;
-  %Cria fila de prioridades
+
+	%Cria uma fila de prioridades vazia
 	q = PriorityQueue() ;
-  %Define estado Objetivo
-	O = [1 2 3; 4 5 6; 7 8 9]; 
-	%atribui a n o nó inicial, custo 0
+	
+	% Estado objetivo 
+	O = [1 2 3; 4 5 6; 7 8 9]; %Lembre-se de que seu programa deve para quando um estado objetivo for alcançado.
+	
+	% Cria um novo nó __n__ com estado igual a matriz __M__ (estado inicial) e 
+	% custo 0 (zero).
  	n = Node(M, 0);
-  q.insert(n.f+h(n.State), n);
-  % Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
+	
+	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó 
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
-	#q.insert(n.f+h(n.State), n);
-	% Laço principal do algoritmo A-estrela - é interrompido quando a fila 
-  %ficar vazia ou o estado do nó for = objetivo
-  
-	while (~q.isempty() || n.State != O)
-      moves = legal_moves(n.State); #recebe os movimentos possiveis dado o estado __n.State__
-      input("\nExecutar movimentos validos\n");
-      #percorre o vetor de possiveis movimentos e atribui a N
-      for i=1:size(moves, 1) 
-        N = do_move(n.State, moves(i));
-       #printf("N(%d): %d \n",i,N.state);
-        show(N);
-        input("\nProximo Movimento\n");
-        new = Node(N,n.f+1); # Como implementar a prioridade (custo nó anterior +1) 
-        q.insert(new.f+h(n.State), new);
-        new.Prev = n;
-      end
-      input("\nFim da rodada\n");
-	    % Remove um nó m com a menor prioridade na fila q
-	    n = q.extractMin();    
-	    show(n.State);
-      input("Nó pai na proxima rodada");
-	    
+	q.insert(n.f+h(n.State), n);
+	
+	% Laço principal do algoritmo A-estrela - é interrompido quando a fila ficar vazia
+	while (~q.isempty())
+      m = q.extractMin();
+	    if isequal(m.State,O)
+        n=m;
+        break;
+     endif
+     moves = legal_moves(m.State);
+     for i=1:size(moves,1)
+        new_s=do_move(m.State,moves(i));
+        new_n=Node(new_s,m.f+1);
+        q.insert(new_n.f+h(new_n.State), new_n);
+        new_n.Prev=m;
+     endfor   
 	end
-
-
 end

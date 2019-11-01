@@ -27,6 +27,7 @@ fprintf('Teste 1: OK\n');
 % Teste 2
 M = [9 1 3; 4 2 5; 7 8 6];
 m = astar(M, @hamming);
+reconstruct_path(m);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 2: OK\n');
 
