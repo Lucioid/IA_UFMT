@@ -9,11 +9,11 @@
 clear
 clc
 
-% Utilizado para comparar objetos - NAO APAGUE! %  
+% Utilizado para comparar objetos - NAO APAGUE! %
 global id;
 id = intmin;
 % %
-
-state = astar([4 1 3; 9 2 5; 7 8 6], @hamming);
-
-%crie mais testes aqui 
+M = [4 9 5; 3 8 6; 7 1 2];
+state = astar(M, @hamming);
+reconstruct_path(state);
+%crie mais testes aqui
