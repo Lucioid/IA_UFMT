@@ -40,19 +40,19 @@ function [n, error] = astar(M, h)
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila ficar vazia
 	while (~q.isempty())
       m = q.extractMin();
-		  if isequal(m.State,O)
+			input(typeinfo(m));
+			input(typeinfo(m.State));
+
+	    if isequal(m.State,O)
         n=m;
         break;
-     	endif
+     endif
      moves = legal_moves(m.State);
-		 for i=1:size(moves,1)
+     for i=1:size(moves,1)
         new_s=do_move(m.State,moves(i));
-				if ~isequal(new_s,m.State.Prev)
-					input("entrou");
-					new_n=Node(new_s,m.f+1);
-        	q.insert(new_n.f+h(new_n.State), new_n);
-        	new_n.Prev=m;
-				endif
+        new_n=Node(new_s,m.f+1);
+        q.insert(new_n.f+h(new_n.State), new_n);
+        new_n.Prev=m;
      endfor
 	end
 end
