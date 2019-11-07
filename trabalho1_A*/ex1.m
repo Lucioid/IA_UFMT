@@ -2,7 +2,7 @@
 % Instituto de Engenharia
 % Inteligência Artificial - 2016/2
 %
-% Script Octave/MATLAB que deve ser utilizado para testar a implementação da 
+% Script Octave/MATLAB que deve ser utilizado para testar a implementação da
 % parte principal do exercício.
 % Este arquivo não deve ser alterado
 % author: raonifst at gmail dot com
@@ -10,7 +10,7 @@
 clear
 clc
 
-% Utilizado para comparar objetos - NAO APAGUE! %  
+% Utilizado para comparar objetos - NAO APAGUE! %
 global id;
 id = intmin;
 
@@ -26,7 +26,7 @@ fprintf('Teste 1: OK\n');
 
 % Teste 2
 M = [9 1 3; 4 2 5; 7 8 6];
-m = astar(M, @hamming);
+m = astar(M, @manhattan);
 reconstruct_path(m);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 2: OK\n');

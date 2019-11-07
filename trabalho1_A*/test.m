@@ -14,6 +14,6 @@ global id;
 id = intmin;
 % %
 M = [4 9 5; 3 8 6; 7 1 2];
-state = astar(M, @hamming);
-reconstruct_path(state);
+dist = manhattan(M);
+disp(dist);
 %crie mais testes aqui
