@@ -6,7 +6,7 @@
 % parte principal do exercício.
 % Este arquivo não deve ser alterado
 % author: raonifst at gmail dot com
-
+tic
 clear
 clc
 
@@ -26,7 +26,7 @@ fprintf('Teste 1: OK\n');
 
 % Teste 2
 M = [9 1 3; 4 2 5; 7 8 6];
-m = astar(M, @manhattan);
+m = astar(M, @hamming);
 reconstruct_path(m);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 2: OK\n');
@@ -34,6 +34,7 @@ fprintf('Teste 2: OK\n');
 % Teste 3
 M = [4 9 5; 3 8 6; 7 1 2];
 m = astar(M, @hamming);
+reconstruct_path(m);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 3: OK\n');
 
@@ -50,3 +51,4 @@ assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 5: OK\n');
 
 fprintf('Sua implementação está correta\n');
+toc

@@ -47,18 +47,13 @@ function [n, error] = astar(M, h)
      moves = legal_moves(m.State);
      for i=1:size(moves,1)
         new_s=do_move(m.State,moves(i));
-				%REDUNDANTE!
 				if isempty(m.Prev)
 					new_n=Node(new_s,m.f+1);
 					new_n.Prev=m;
 					q.insert(new_n.f+h(new_n.State), new_n);
-				else if ~isequal(new_s,m.Prev.State)
-							%printf("\nnew_s\n");
-							%disp(new_s);
-							%input("\nm.prev\n");
-							%disp(m.Prev.State);
-		        	new_n=Node(new_s,m.f+1);
-		        	new_n.Prev=m;
+				else if ~isequal(new_s,m.Prev.State) %entra se for diferente
+							new_n=Node(new_s,m.f+1);
+							new_n.Prev=m;
 							q.insert(new_n.f+h(new_n.State), new_n);
 						 endif
 				endif
