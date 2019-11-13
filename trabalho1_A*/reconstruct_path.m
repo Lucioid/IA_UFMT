@@ -8,8 +8,7 @@
 % author: raonifst at gmail dot com
 
 function reconstruct_path( node )
-    
-    if ~isempty(node),	
+    if ~isempty(node),
         if isempty(node.Prev),
             show(node.State);
         else
@@ -18,4 +17,3 @@ function reconstruct_path( node )
         end
     end
 end
-

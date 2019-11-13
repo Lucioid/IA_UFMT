@@ -26,7 +26,7 @@ function [n, error] = astar(M, h)
 	q = PriorityQueue() ;
 
 	% Estado objetivo
-	O = [1 2 3; 4 5 6; 7 8 9]; %Lembre-se de que seu programa deve para quando um estado objetivo for alcançado.
+	O = [1 2 3; 4 5 6; 7 8 9]; %Lembre-se de que seu programa deve parar quando um estado objetivo for alcançado.
 
 	% Cria um novo nó __n__ com estado igual a matriz __M__ (estado inicial) e
 	% custo 0 (zero).
@@ -36,7 +36,7 @@ function [n, error] = astar(M, h)
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
 	% considerada
 	q.insert(n.f+h(n.State), n);
-
+	count=0;
 	% Laço principal do algoritmo A-estrela - é interrompido quando a fila ficar vazia
 	while (~q.isempty())
       m = q.extractMin();
@@ -57,7 +57,6 @@ function [n, error] = astar(M, h)
 							q.insert(new_n.f+h(new_n.State), new_n);
 						 endif
 				endif
-
      endfor
 	end
 end
