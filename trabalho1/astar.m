@@ -31,6 +31,7 @@ function [n, error] = astar(M, h)
 	% Cria um novo nó __n__ com estado igual a matriz __M__ (estado inicial) e
 	% custo 0 (zero).
  	n = Node(M, 0);
+	E = [9 1 3; 2 4 5; 7 8 6];
 
 	% Insere o nó __n__ na fila de prioridades __q__. O custo deste nó
 	% é igual a n.f+g(n.State). __g__ é um apontador para função heurística
@@ -44,9 +45,14 @@ function [n, error] = astar(M, h)
         n=m;
         break;
      endif
+		 if isequal(m.State,E)
+		 	 error=1;
+		 	 break;
+		 endif
      moves = legal_moves(m.State);
      for i=1:size(moves,1)
         new_s=do_move(m.State,moves(i));
+
 				if isempty(m.Prev)
 					new_n=Node(new_s,m.f+1);
 					new_n.Prev=m;

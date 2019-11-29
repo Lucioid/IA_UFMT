@@ -11,7 +11,7 @@
 clear
 clc
 
-% Utilizado para comparar objetos - NAO APAGUE! %  
+% Utilizado para comparar objetos - NAO APAGUE! %
 global id;
 id = intmin;
 % %
@@ -36,13 +36,13 @@ fprintf('Teste 3: OK\n');
 
 % Teste 4
 M = [5 3 2; 7 6 4; 8 1 9];
-m = astar(M, @heuristic);
+m = astar(M, @manhattan);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 4: OK\n');
 
 % Teste 5
 M = [4 6 7; 9 5 8; 2 1 3];
-m = astar(M, @heuristic);
+m = astar(M, @manhattan);
 assert(m.eq(Node([1 2 3; 4 5 6; 7 8 9], 0)));
 fprintf('Teste 5: OK\n');
 
