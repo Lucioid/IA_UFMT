@@ -9,6 +9,6 @@
 
 function [ score ] = eval_game_a( Board, depth,  player)
        
-%         
+     
 end
 
