@@ -1,19 +1,22 @@
 function [ best_val, best_pos ] = minimax( Board, depth, player )
 %     Minimax helper function: Return the minimax value of a particular board,
 %     given a particular depth to estimate to
-%    
+%
 
     debug = 0;
 
     best_val = nan;
     best_pos = 0;
-    
+
     if is_terminal(Board, depth),
         best_val =  eval_game(Board, depth, player);
     else
-        
-            
-        for i=1:7, 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3b4b1eb42bb1f909ec0579412b3557fb614c6b85
+        for i=1:7,
             [new_board, valid] = do_move( Board, i, player);
             if valid == 1,
                 val = -1*minimax(new_board, depth-1, opposite_player(player));
@@ -23,9 +26,9 @@ function [ best_val, best_pos ] = minimax( Board, depth, player )
                 end
             end
         end
-         
+
     end
-    
+
     if debug == 1,
         fprintf('******************************************\n');
         fprintf('Profundidade: %d\nJogador: %d\nMelhor valor: %f\nMelhor Posicao: %f\n', depth, player, best_val, best_pos);
@@ -38,4 +41,3 @@ function [ best_val, best_pos ] = minimax( Board, depth, player )
     end
 
 end
-

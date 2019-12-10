@@ -6,18 +6,13 @@
 %
 % author: raonifst at gmail dot com
 
-
 function [ score ] = eval_game_a( Board, depth,  player)
-       for i=1:6
-         for j=1:7
-           %para busca na horizontal
-           if(Board(i,j))== id_player
-             for h=1:7
-               if(Board(i,h))==id_player
-                 aprox_H = aprox+1;
-               end
-            endfor
-
-         endfor
-       endfor
+       %testar pontuação do jogador 1
+       scoreA=find_streak(Board,1,4);
+       %testar pontuação do jogador 2]
+       scoreB=find_streak(Board,2,4);
+       if(scoreA>scoreB)
+         score=(scoreA*-1);
+       else
+         score= scoreB;
 end
