@@ -13,7 +13,7 @@
 Board = zeros(6,7); % Create a new Connect Four Board
 
 computer = 1; % computer's player id
-depth  = 5;  %5 - hard; 3 - medium; 1 - easy
+depth  = 1;  %5 - hard; 3 - medium; 1 - easy
 
 player = 2;
 over = 0;
@@ -24,7 +24,7 @@ while over == 0,
 
         fprintf('Computer\n');
 
-       [ ~, best_pos ] = minimax_alpha_beta(Board, depth, player, -Inf, Inf);
+       [ ~, best_pos ] = minimax(Board, depth, player);
 
         [Board, ~ ] = do_move(Board, best_pos, player);
 
