@@ -12,6 +12,11 @@ function [ best_val, best_pos ] = minimax( Board, depth, player )
         best_val =  eval_game(Board, depth, player);
     else
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3b4b1eb42bb1f909ec0579412b3557fb614c6b85
 =======
 
 
