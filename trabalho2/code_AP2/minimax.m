@@ -11,8 +11,16 @@ function [ best_val, best_pos ] = minimax( Board, depth, player )
     if is_terminal(Board, depth),
         best_val =  eval_game(Board, depth, player);
     else
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 3b4b1eb42bb1f909ec0579412b3557fb614c6b85
+=======
+
+
+>>>>>>> 3b4b1eb42bb1f909ec0579412b3557fb614c6b85
         for i=1:7,
             [new_board, valid] = do_move( Board, i, player);
             if valid == 1,
