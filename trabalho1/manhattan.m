@@ -14,7 +14,7 @@
 function dist = manhattan(State)
 	Obj = [1 2 3; 4 5 6; 7 8 9];
 	dist = 0;
-	for i=1: 8;
+	for i=1: 9;
 		[x1,y1] = find(State == i);
 		[x2,y2] = find(Obj == i);
 		dist += (abs(x1-x2) + abs(y1-y2));

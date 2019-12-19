@@ -6,13 +6,17 @@
 %
 % author: raonifst at gmail dot com
 
-function [ score ] = eval_game_a( Board, depth,  player)
+function [ score ] = eval_game( Board, depth,  player)
+
        %testar pontuação do jogador 1
-       scoreA=find_streak(Board,1,4);
+       scoreA=find_streak(Board, 1, 4);
        %testar pontuação do jogador 2]
-       scoreB=find_streak(Board,2,4);
-       if(scoreA>scoreB)
-         score=(scoreA*-1);
+       scoreB=find_streak(Board, 2, 4);
+
+       if  scoreB >= 1 || scoreB > scoreA
+        score= -1*scoreB - depth;
        else
-         score= scoreB;
+         score=scoreA;
+      end
+
 end
