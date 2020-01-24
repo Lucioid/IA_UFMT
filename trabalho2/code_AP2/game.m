@@ -17,17 +17,18 @@ depth  = 5;  %5 - hard; 3 - medium; 1 - easy
 
 player = 2;
 over = 0;
-
+time=0;
 while over == 0,
 
     if player == computer,
-
+      tic
         fprintf('Computer\n');
 
        [ ~, best_pos ] = minimax_alpha_beta(Board, depth, player,nan,nan);
 
         [Board, ~ ] = do_move(Board, best_pos, player);
-
+      time+=toc;
+      toc
     else
         % human player
 
@@ -60,3 +61,4 @@ else
         fprintf('You win!\n');
     end
 end
+display(time);
