@@ -3,7 +3,7 @@
 Board = zeros(6,7); % Create a new Connect Four Board
 
 computer = 1; % computer's player id
-depth  = 9;  %5 - hard; 3 - medium; 1 - easy
+depth  = 2;  %5 - hard; 3 - medium; 1 - easy
 
 player = 1;
 over = 0;
