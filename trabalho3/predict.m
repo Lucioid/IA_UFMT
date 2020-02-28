@@ -23,5 +23,4 @@ a3 = sigmoid(z3);
 
 
 
-
 end
