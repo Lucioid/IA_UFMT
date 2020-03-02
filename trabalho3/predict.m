@@ -11,10 +11,14 @@ num_classes = size(Theta2, 1);
 % Voce deve preencher o seguinte vetor corretamente com a classe de cada
 % amostra
 p = zeros(m, 1);
-a = [];
-for i=1:m
-  a(i)=X(i)
-
+bias1 = ones(5000,1);
+a1 = [ones(size(X),1) X];
+z2 = a1*Theta1';
+a2_= [ones(size(z2),1) z2];
+a2 = sigmoid(a2_);
+z3 = a2*Theta2';
+a3 = sigmoid(z3);
+[a p] = max(a3);
 
 
 
