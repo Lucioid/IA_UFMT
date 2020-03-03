@@ -20,7 +20,4 @@ z3 = a2*Theta2';
 a3 = sigmoid(z3);
 [a p] = max(a3);
 
-
-
-
 end
