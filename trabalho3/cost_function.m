@@ -42,9 +42,20 @@ a2_= [ones(size(z2),1) z2];
 a2 = sigmoid(a2_);
 z3 = a2*Theta2';
 a3 = sigmoid(z3);
-
+delta1=delta2=[];
 %erro da camada de saída
-E1 = (a3-y)
+gamma3 = (a3-y);
+gamma2 = (gamma3*Theta2).*sigmoidGradient([ones(size(z2,1),1) z2]);
+gamma2 = gamma2(:,2:end);
+delta1=(gamma2'*a1);
+delta2=(gamma3'*a2);
+
+J=(1/m)*delta1;
+
+
+
+
+
 
 
 
