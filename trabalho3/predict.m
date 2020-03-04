@@ -13,9 +13,12 @@ num_classes = size(Theta2, 1);
 p = zeros(m, 1);
 bias1 = ones(5000,1);
 a1 = [ones(size(X),1) X];
+size(a1)
 z2 = a1*Theta1';
+size(z2)
 a2_= [ones(size(z2),1) z2];
 a2 = sigmoid(a2_);
+size(a2)
 z3 = a2*Theta2';
 a3 = sigmoid(z3);
 [a p] = max(a3);
