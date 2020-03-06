@@ -33,15 +33,17 @@ for i=1:m
 end
 
 % =============== Sua implementação deve ser vir aqui ==================
+
+delta2=zeros(10,26);
 a1 = [ones(size(X),1) X];
 z2 = a1*Theta1';
 a2_= [ones(size(z2),1) z2];
 a2 = sigmoid(a2_);
 z3 = a2*Theta2';
 a3 = sigmoid(z3);
-J=(1/m)*sum(sum(-Y.*log(a3)- (1-Y).*log(1-a3))) + (lambda/(2*m))*(sum(sum(Theta1.*Theta1))+sum(sum(Theta2.*Theta2)));
+J=(1/m)*sum(sum(-Y.*log(a3)-(1-Y).*log(1-a3))) + (lambda/(2*m))*(sum(sum(Theta1.*Theta1))+sum(sum(Theta2.*Theta2)));
 %erro da camada de saída
-gamma3 = (a3-y);
+gamma3 = (a3-Y);
 gamma2 = (gamma3*Theta2).*sigmoidGradient([ones(size(z2,1),1) z2]);
 gamma2 = gamma2(:,2:end);
 delta1=(gamma2'*a1);
@@ -54,9 +56,8 @@ delta2=(gamma3'*a2);
 
 p1 = (lambda/m)*[zeros(size(Theta1, 1), 1) Theta1(:, 2:end)];
 p2 = (lambda/m)*[zeros(size(Theta2, 1), 1) Theta2(:, 2:end)];
-Theta1_grad = ((1/m)*delta1)+p1;
-Theta2_grad = ((1/m)*delta2)+p2;
-
+Theta1_grad = (delta1/m)+p1;
+Theta2_grad = (delta2/m)+p2;
 
 % Não altere esta linha!!
 grad = [Theta1_grad(:) ; Theta2_grad(:)];

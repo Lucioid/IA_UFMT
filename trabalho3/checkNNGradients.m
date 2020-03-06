@@ -35,18 +35,26 @@ costFunc = @(p) cost_function(p, input_layer_size, hidden_layer_size, ...
 numgrad = computeNumericalGradient(costFunc, nn_params);
 
 % Visually examine the two gradient computations.  The two columns
-% you get should be very similar. 
+% you get should be very similar.
 disp([numgrad grad]);
 fprintf(['Os valores nas duas colunas devem ser MUITO próximos!.\n' ...
          '(Esquerda - Gradiente calc. Backpropagation, Direita Gradiente cal. analiticamente)\n\n']);
 
-% Evaluate the norm of the difference between two solutions.  
-% If you have a correct implementation, and assuming you used EPSILON = 0.0001 
+% Evaluate the norm of the difference between two solutions.
+% If you have a correct implementation, and assuming you used EPSILON = 0.0001
 % in computeNumericalGradient.m, then diff below should be less than 1e-9
 diff = norm(numgrad-grad)/norm(numgrad+grad);
+
 
 fprintf(['Se sua implementação estiver correta, então \n' ...
          'a diferença relativa será MUITO pequena (<  1e-9). \n' ...
          '\nDiferença relativa: %g\n'], diff);
+
+fprintf("DIFERENÇA Backpropagation - analitico \n")
+close all
+plot(numgrad);
+figure
+plot(grad);
+input("ENTER");
 
 end
