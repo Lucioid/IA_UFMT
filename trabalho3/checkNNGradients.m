@@ -55,6 +55,6 @@ close all
 plot(numgrad);
 figure
 plot(grad);
-input("ENTER");
+
 
 end

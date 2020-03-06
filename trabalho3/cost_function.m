@@ -59,6 +59,8 @@ p2 = (lambda/m)*[zeros(size(Theta2, 1), 1) Theta2(:, 2:end)];
 Theta1_grad = (delta1/m)+p1;
 Theta2_grad = (delta2/m)+p2;
 
+
+
 % Não altere esta linha!!
 grad = [Theta1_grad(:) ; Theta2_grad(:)];
 

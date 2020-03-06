@@ -43,8 +43,13 @@ pause;
 
 fprintf('\nCarregando parâmetros salvos ...\n')
 
-load('ap3weights.mat');
+initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
+initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
+Theta1 = initial_Theta1;
+Theta2 = initial_Theta2;
+save('pesos_teste.mat','Theta1','Theta2');
 
+load('pesos_teste.mat');
 nn_params = [Theta1(:) ; Theta2(:)];
 
 
