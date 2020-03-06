@@ -38,9 +38,10 @@ options = optimset('MaxIter', 50);
 
 %  should also try different values of lambda
 lambda = 1;
+load('pesos_teste.mat');
 
-initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
-initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
+initial_Theta1 = Theta1;
+initial_Theta2 = Theta2;
 
 %
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];

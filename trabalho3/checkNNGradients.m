@@ -51,10 +51,10 @@ fprintf(['Se sua implementação estiver correta, então \n' ...
          '\nDiferença relativa: %g\n'], diff);
 
 fprintf("DIFERENÇA Backpropagation - analitico \n")
-close all
-plot(numgrad);
-figure
-plot(grad);
+%close all
+%plot(numgrad);
+%figure
+%plot(grad);
 
 
 end
